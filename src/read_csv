@@ -1,0 +1,8 @@
+import pandas as pd
+
+# Ler o arquivo CSV e criar um DataFrame
+df = pd.read_csv('assets/PAIS.csv', sep=';', encoding='ISO-8859-1', quotechar='"')
+
+# Agora você pode trabalhar com o DataFrame 'df'
+# Por exemplo, você pode exibir as primeiras linhas do DataFrame:
+print(df.head())
