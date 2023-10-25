@@ -54,5 +54,3 @@ download_list = [
 
 for item in download_list:
     file_download(item["url"], item["dest_folder"])
-
-#teste
