@@ -39,17 +39,27 @@ def extract_zip(zip_path, extract_to):
         zip_ref.extractall(extract_to)
         print(f"Files extracted to {extract_to}")
 
-
+# Site oficial - https://www.gov.br/mdic/pt-br/assuntos/comercio-exterior/estatisticas/base-de-dados-bruta
 # Lista de URLs e destinos
+
 download_list = [
+
     {
         "url": "https://balanca.economia.gov.br/balanca/bd/tabelas/PAIS.csv",
-        "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023",
+        "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
     },
+
+    # Dados de exportação 
     {
         "url": "https://balanca.economia.gov.br/balanca/bd/comexstat-bd/ncm/EXP_COMPLETA.zip",
-        "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023",
+        "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
     },
+
+    # Dados de importação
+    {
+        "url": "https://balanca.economia.gov.br/balanca/bd/comexstat-bd/ncm/IMP_COMPLETA.zip",
+        "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
+    }
 ]
 
 for item in download_list:
