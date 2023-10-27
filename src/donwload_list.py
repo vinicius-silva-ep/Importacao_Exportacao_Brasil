@@ -1,7 +1,7 @@
 # Site oficial - https://www.gov.br/mdic/pt-br/assuntos/comercio-exterior/estatisticas/base-de-dados-bruta
 # Lista de URLs e destinos
 
-download_list = [
+download_list_url = [
 
     # Dados de Países
     {
@@ -43,6 +43,15 @@ download_list = [
     {
         "url": "https://balanca.economia.gov.br/balanca/bd/tabelas/VIA.csv",
         "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
-    }                 
+    },
+
+    # URF - Unidade da RFB
+    {
+        "url": "https://balanca.economia.gov.br/balanca/bd/tabelas/URF.csv",
+        "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
+    }                      
 
 ]
+
+# Quando for necessário testar para ver se não há nenhum erro na lista
+# print(download_list_url)
