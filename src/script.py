@@ -44,6 +44,7 @@ def extract_zip(zip_path, extract_to):
 
 download_list = [
 
+    # Dados de Países
     {
         "url": "https://balanca.economia.gov.br/balanca/bd/tabelas/PAIS.csv",
         "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
@@ -58,6 +59,12 @@ download_list = [
     # Dados de importação
     {
         "url": "https://balanca.economia.gov.br/balanca/bd/comexstat-bd/ncm/IMP_COMPLETA.zip",
+        "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
+    },
+    
+    # Dados de Blocos
+    {
+        "url": "https://balanca.economia.gov.br/balanca/bd/tabelas/PAIS_BLOCO.csv",
         "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
     }
 ]
