@@ -39,35 +39,8 @@ def extract_zip(zip_path, extract_to):
         zip_ref.extractall(extract_to)
         print(f"Files extracted to {extract_to}")
 
-# Site oficial - https://www.gov.br/mdic/pt-br/assuntos/comercio-exterior/estatisticas/base-de-dados-bruta
-# Lista de URLs e destinos
+# Extrai a lista que está em outro arquivo
+from donwload_list import download_list_url
 
-download_list = [
-
-    # Dados de Países
-    {
-        "url": "https://balanca.economia.gov.br/balanca/bd/tabelas/PAIS.csv",
-        "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
-    },
-
-    # Dados de exportação 
-    {
-        "url": "https://balanca.economia.gov.br/balanca/bd/comexstat-bd/ncm/EXP_COMPLETA.zip",
-        "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
-    },
-
-    # Dados de importação
-    {
-        "url": "https://balanca.economia.gov.br/balanca/bd/comexstat-bd/ncm/IMP_COMPLETA.zip",
-        "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
-    },
-    
-    # Dados de Blocos
-    {
-        "url": "https://balanca.economia.gov.br/balanca/bd/tabelas/PAIS_BLOCO.csv",
-        "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
-    }
-]
-
-for item in download_list:
+for item in download_list_url:
     file_download(item["url"], item["dest_folder"])
