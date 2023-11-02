@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>Transformar_csv_aliementar_banco</name>
+    <name>TABELA_PAISES</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -430,7 +431,7 @@
     <created_date>2023/10/27 00:12:43.851</created_date>
     <modified_user>-</modified_user>
     <modified_date>2023/10/27 00:12:43.851</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -514,8 +515,8 @@
     </hop>
   </order>
   <step>
-    <name>PAIS.csv</name>
-    <type>CsvInput</type>
+    <name>Dummy (do nothing)</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -524,88 +525,6 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\Users\vinic\Documents\ESTUDOS_DATA_SCIENCE\PORTFÓLIO\IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023\PAIS.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>;</separator>
-    <enclosure>"</enclosure>
-    <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <format>mixed</format>
-    <encoding/>
-    <fields>
-      <field>
-        <name>CO_PAIS</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>3</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>CO_PAIS_ISON3</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>3</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>CO_PAIS_ISOA3</name>
-        <type>String</type>
-        <format/>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>NO_PAIS</name>
-        <type>String</type>
-        <format/>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>50</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>NO_PAIS_ING</name>
-        <type>String</type>
-        <format/>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>50</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>NO_PAIS_ESP</name>
-        <type>String</type>
-        <format/>
-        <currency>R$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>50</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -615,8 +534,101 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
-      <yloc>80</yloc>
+      <xloc>576</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Dummy (do nothing) 2</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>INCREMENTAL</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>DW_IMP_EXP_BR</connection>
+    <commit>3000</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>"public"</schema>
+      <table>paises</table>
+      <key>
+        <name>co_pais</name>
+        <field>co_pais</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>co_pais</name>
+        <rename>co_pais</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>co_pais_ison3</name>
+        <rename>co_pais_ison3</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>co_pais_isoa3</name>
+        <rename>co_pais_isoa3</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>no_pais</name>
+        <rename>no_pais</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>no_pais_ing</name>
+        <rename>no_pais_ing</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>no_pais_esp</name>
+        <rename>no_pais_esp</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>432</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -634,27 +646,21 @@
     <fields>
       <field>
         <name>CO_PAIS</name>
-        <rename/>
       </field>
       <field>
         <name>CO_PAIS_ISON3</name>
-        <rename/>
       </field>
       <field>
         <name>CO_PAIS_ISOA3</name>
-        <rename/>
       </field>
       <field>
         <name>NO_PAIS</name>
-        <rename/>
       </field>
       <field>
         <name>NO_PAIS_ING</name>
-        <rename/>
       </field>
       <field>
         <name>NO_PAIS_ESP</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -769,8 +775,115 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
-      <yloc>80</yloc>
+      <xloc>240</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>PAIS.csv</name>
+    <type>CsvInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <filename>C:\Users\vinic\Documents\ESTUDOS_DATA_SCIENCE\PORTFÓLIO\IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023\PAIS.csv</filename>
+    <filename_field/>
+    <rownum_field/>
+    <include_filename>N</include_filename>
+    <separator>;</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <format>mixed</format>
+    <encoding/>
+    <fields>
+      <field>
+        <name>CO_PAIS</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>R$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>3</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CO_PAIS_ISON3</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>R$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>3</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CO_PAIS_ISOA3</name>
+        <type>String</type>
+        <format/>
+        <currency>R$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>NO_PAIS</name>
+        <type>String</type>
+        <format/>
+        <currency>R$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>50</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>NO_PAIS_ING</name>
+        <type>String</type>
+        <format/>
+        <currency>R$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>50</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>NO_PAIS_ESP</name>
+        <type>String</type>
+        <format/>
+        <currency>R$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>50</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -790,7 +903,9 @@
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
     <quoteString>N</quoteString>
-    <sql>CREATE TABLE IF not exists public.paises
+    <sql>-- Esse passo criar a tabela novamente caso ela já tenha sido deletada
+
+CREATE TABLE IF not exists public.paises
 (
     CO_PAIS smallint,
     CO_PAIS_ISON3 smallint,
@@ -802,6 +917,9 @@
 
 ALTER TABLE IF EXISTS public.paises
     OWNER to postgres;
+
+ALTER TABLE public.paises
+	ADD PRIMARY KEY (CO_PAIS);
 
 COMMENT ON TABLE public.paises
     IS '# Essa tabela contém os dados dos países';
@@ -823,133 +941,15 @@ ALTER TABLE public.paises ALTER COLUMN co_pais SET NOT NULL;</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>576</xloc>
-      <yloc>48</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>INCREMENTAL</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>DW_IMP_EXP_BR</connection>
-    <commit>3000</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema>"public"</schema>
-      <table>paises</table>
-      <key>
-        <name>co_pais</name>
-        <field>co_pais</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>co_pais</name>
-        <rename>co_pais</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>co_pais_ison3</name>
-        <rename>co_pais_ison3</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>co_pais_isoa3</name>
-        <rename>co_pais_isoa3</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>no_pais</name>
-        <rename>no_pais</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>no_pais_ing</name>
-        <rename>no_pais_ing</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>no_pais_esp</name>
-        <rename>no_pais_esp</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>416</xloc>
-      <yloc>80</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Dummy (do nothing)</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>560</xloc>
-      <yloc>176</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Dummy (do nothing) 2</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>752</xloc>
-      <yloc>48</yloc>
+      <xloc>592</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
     <error>
-      <source_step>RECRIA A TABELA</source_step>
-      <target_step>Dummy (do nothing) 2</target_step>
+      <source_step>INCREMENTAL</source_step>
+      <target_step>RECRIA A TABELA</target_step>
       <is_enabled>Y</is_enabled>
       <nr_valuename/>
       <descriptions_valuename/>
@@ -960,8 +960,8 @@ ALTER TABLE public.paises ALTER COLUMN co_pais SET NOT NULL;</sql>
       <min_pct_rows/>
     </error>
     <error>
-      <source_step>INCREMENTAL</source_step>
-      <target_step>RECRIA A TABELA</target_step>
+      <source_step>RECRIA A TABELA</source_step>
+      <target_step>Dummy (do nothing) 2</target_step>
       <is_enabled>Y</is_enabled>
       <nr_valuename/>
       <descriptions_valuename/>
