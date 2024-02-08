@@ -49,7 +49,13 @@ download_list_url = [
     {
         "url": "https://balanca.economia.gov.br/balanca/bd/tabelas/URF.csv",
         "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
-    }                      
+    },
+
+        # ISIC  - Classificação Internacional de Todas Atividades Econômicas
+    {
+        "url": "https://balanca.economia.gov.br/balanca/bd/tabelas/NCM_ISIC.csv",
+        "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
+    }                        
 
 ]
 
