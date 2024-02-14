@@ -12,7 +12,7 @@ def file_download(url, dest_folder):
 
     # Cria a pasta
     if not os.path.exists(dest_folder):
-        os.makedirs(dest_folder)
+        os.makedirs(dest_folder) 
 
     # Salva o arquivo
     with open(dest_path, "wb") as new_file:
