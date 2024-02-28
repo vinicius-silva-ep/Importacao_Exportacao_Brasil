@@ -9,17 +9,17 @@ download_list_url = [
         "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
     },
 
-    # Dados de exportação 
-    {
-        "url": "https://balanca.economia.gov.br/balanca/bd/comexstat-bd/ncm/EXP_COMPLETA.zip",
-        "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
-    },
+    # # Dados de exportação 
+    # {
+    #     "url": "https://balanca.economia.gov.br/balanca/bd/comexstat-bd/ncm/EXP_COMPLETA.zip",
+    #     "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
+    # },
 
-    # Dados de importação
-    {
-        "url": "https://balanca.economia.gov.br/balanca/bd/comexstat-bd/ncm/IMP_COMPLETA.zip",
-        "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
-    },
+    # # Dados de importação
+    # {
+    #     "url": "https://balanca.economia.gov.br/balanca/bd/comexstat-bd/ncm/IMP_COMPLETA.zip",
+    #     "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
+    # },
     
     # Dados de Blocos
     {
@@ -51,7 +51,7 @@ download_list_url = [
         "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
     },
 
-        # ISIC  - Classificação Internacional de Todas Atividades Econômicas
+    # ISIC  - Classificação Internacional de Todas Atividades Econômicas
     {
         "url": "https://balanca.economia.gov.br/balanca/bd/tabelas/NCM_ISIC.csv",
         "dest_folder": "C:/Users/vinic/Documents/ESTUDOS_DATA_SCIENCE/PORTFÓLIO/IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023"
