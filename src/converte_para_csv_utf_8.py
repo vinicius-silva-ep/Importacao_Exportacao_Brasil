@@ -1,13 +1,10 @@
+import os
 import chardet
-import csv
-import codecs
 
 def verificar_codificacao_utf8(arquivo_path):
     with open(arquivo_path, 'rb') as f:
-        # Lê os primeiros 10000 bytes do arquivo para determinar a codificação
         resultado = chardet.detect(f.read(10000))
     
-    # Obtém a codificação detectada
     codificacao_detectada = resultado['encoding']
 
     if codificacao_detectada.lower() == 'utf-8':
@@ -17,19 +14,23 @@ def verificar_codificacao_utf8(arquivo_path):
         converter_para_utf8(arquivo_path)
 
 def converter_para_utf8(arquivo_path):
-    # Lê o conteúdo do arquivo usando a codificação detectada
     with open(arquivo_path, 'r', encoding='ISO-8859-1') as f:
         conteudo = f.read()
 
-    # Escreve o conteúdo do arquivo com a codificação UTF-8
     with open(arquivo_path, 'w', encoding='utf-8') as f:
         f.write(conteudo)
 
     print(f'O arquivo {arquivo_path} foi convertido para UTF-8.')
 
+def verificar_e_converter_csv_em_lote(diretorio):
+    for nome_arquivo in os.listdir(diretorio):
+        arquivo_path = os.path.join(diretorio, nome_arquivo)
+        if os.path.isfile(arquivo_path) and arquivo_path.lower().endswith('.csv'):
+            verificar_codificacao_utf8(arquivo_path)
+
 def main():
-    arquivo_path = 'C://Users//vinic//Documents//ESTUDOS_DATA_SCIENCE//PORTFÓLIO//IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023//NCM.csv'
-    verificar_codificacao_utf8(arquivo_path)
+    diretorio = 'C://Users//vinic//Documents//ESTUDOS_DATA_SCIENCE//PORTFÓLIO//IMPORTAÇÃO E EXPORTAÇÃO DO BRASIL DE 1996 A 2023'
+    verificar_e_converter_csv_em_lote(diretorio)
 
 if __name__ == "__main__":
     main()
